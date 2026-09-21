@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Electrical | King Harbor Marine Center</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background-color: white;
+        }
+
+        /* ===== TOP CONTACT / LOGO BAR ===== */
+
+        .top-contact-bar {
+            width: 100%;
+            min-height: 115px;
+            background-color: #0755b5;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 5px 40px;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-logo img {
+            width: 105px;
+            height: 105px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .business-name {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            line-height: 1.05;
+        }
+
+        .business-name strong {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        .business-name span {
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-top: 5px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .contact-info a:hover {
+            color: #d7ebff;
+        }
+
+        .contact-divider {
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        /* ===== NAVIGATION ===== */
+
+        nav {
+            width: 100%;
+            background-color: #0755b5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu>li>a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 8px 10px 10px;
+        }
+
+        .nav-menu>li>a:hover {
+            color: #d7ebff;
+        }
+
+        /* ===== SERVICES DROPDOWN ===== */
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 270px;
+            margin: 0;
+            padding: 6px 0;
+            list-style: none;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.20);
+            z-index: 1000;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: #003b63;
+            text-decoration: none;
+            padding: 12px 18px;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #e8f4fa;
+            color: #005b8f;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* ===== SERVICE CONTENT ===== */
+
+        .service-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 35px 30px 40px;
+        }
+
+        .service-content h1 {
+            color: #0755b5;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 38px;
+            margin: 0 0 12px;
+        }
+
+        .service-intro {
+            max-width: 850px;
+            font-size: 17px;
+            line-height: 1.6;
+            color: #444;
+            margin: 0 0 25px;
+        }
+
+        .service-list {
+            margin-top: 20px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 14px 20px;
+        }
+
+        .service-item {
+            background-color: #f4f9fd;
+            border-left: 5px solid #0755b5;
+            padding: 14px 18px;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .service-item strong {
+            display: block;
+            color: #0b2d5c;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .service-item p {
+            margin: 0;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* ===== CONTACT CTA ===== */
+
+        .service-cta {
+            margin-top: 25px;
+            padding: 22px 25px;
+            background-color: #eaf5ff;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .service-cta h3 {
+            color: #0b2d5c;
+            font-size: 23px;
+            margin: 0 0 8px;
+        }
+
+        .service-cta p {
+            margin: 0 0 15px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #0755b5;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background-color: #003b63;
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            background-color: #071d3a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* ===== MOBILE ===== */
+
+        @media (max-width: 800px) {
+
+            .top-contact-bar {
+                min-height: auto;
+                flex-direction: column;
+                gap: 10px;
+                padding: 12px 20px;
+            }
+
+            .header-logo img {
+                width: 95px;
+                height: 95px;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .nav-menu {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            .service-content h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-contact-bar">
+
+        <div class="header-logo">
+            <img src="logo.png" alt="King Harbor Marine Center Logo">
+
+            <div class="business-name">
+                <strong>KING HARBOR</strong>
+                <span>MARINE CENTER</span>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <a href="tel:3103748923">☎ 310-374-8923</a>
+
+            <span class="contact-divider">|</span>
+
+            <a href="mailto:kingharbormarinecenter@gmail.com">
+                ✉ kingharbormarinecenter@gmail.com
+            </a>
+        </div>
+
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Services ▼</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="fiberglass-woodworking.html">Fiberglass &amp; Woodworking</a></li>
+                    <li><a href="bottom-painting-finishing.html">Bottom Painting &amp; Finishing</a></li>
+                    <li><a href="electrical.html">Electrical</a></li>
+                    <li><a href="plumbing.html">Plumbing</a></li>
+                    <li><a href="rigging-props.html">Rigging &amp; Props</a></li>
+                    <li><a href="haul-launch.html">Haul &amp; Launch</a></li>
+                    <li><a href="laydays.html">Laydays</a></li>
+                </ul>
+            </li>
+
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- SERVICE CONTENT -->
+    <main class="service-content">
+
+        <h1>Electrical</h1>
+
+        <p class="service-intro">
+            King Harbor Marine Center provides marine electrical services
+            for your boat's electrical systems and equipment.
+        </p>
+
+        <div class="service-list">
+
+            <div class="service-item">
+                <strong>Electrical Repairs &amp; Troubleshooting</strong>
+                <p>
+                    Electrical troubleshooting and repairs for your boat's
+                    electrical systems.
+                </p>
+            </div>
+
+            <div class="service-item">
+                <strong>Batteries &amp; Chargers</strong>
+                <p>
+                    Battery and charging system service, replacement,
+                    and installation.
+                </p>
+            </div>
+
+            <div class="service-item">
+                <strong>Generator Repairs &amp; Installation</strong>
+                <p>
+                    Marine generator repair and installation services.
+                </p>
+            </div>
+
+            <div class="service-item">
+                <strong>Lighting &amp; LED Upgrades</strong>
+                <p>
+                    Marine lighting service and LED upgrades for improved
+                    lighting and efficiency.
+                </p>
+            </div>
+
+        </div>
+        <div class="service-cta">
+
+            <h3>Need Electrical Service?</h3>
+
+            <p>
+                Contact King Harbor Marine Center to discuss your
+                boat's electrical service needs.
+            </p>
+
+            <a href="contact.html" class="cta-button">
+                Contact Us
+            </a>
+
+        </div>
+
+    </main>
+    <footer>
+        © 2026 King Harbor Marine Center. All Rights Reserved.
+    </footer>
+
+</body>
+
+</html>

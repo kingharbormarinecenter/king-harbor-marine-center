@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>King Harbor Marine Center | Redondo Beach, CA</title>
+
+    <style>
+        /* ===== GENERAL PAGE STYLES ===== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background-color: white;
+        }
+
+
+        /* ===== TOP CONTACT / LOGO BAR ===== */
+
+        .top-contact-bar {
+            width: 100%;
+            height: 180px;
+
+            background-color: #0755b5;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 5px 40px;
+            margin: 0;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-logo img {
+            width: 170px;
+            height: 170px;
+
+            object-fit: contain;
+            display: block;
+        }
+
+        .business-name {
+            display: flex;
+            flex-direction: column;
+
+            color: white;
+            line-height: 1.05;
+        }
+
+        .business-name strong {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        .business-name span {
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-top: 5px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            color: #bfe6f7;
+        }
+
+        .contact-divider {
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+
+        /* ===== NAVIGATION ===== */
+
+        nav {
+            width: 100%;
+            background-color: #003b63;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu {
+            list-style: none;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 40px;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu>li>a {
+            display: block;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            padding: 8px 10px 10px;
+        }
+
+        .nav-menu>li>a:hover {
+            color: #bfe6f7;
+
+
+        }
+
+
+        /* ===== SERVICES DROPDOWN ===== */
+
+        .dropdown-menu {
+            display: none;
+
+            position: absolute;
+            top: 100%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            min-width: 240px;
+
+            margin: 0;
+            padding: 6px 0;
+
+            list-style: none;
+
+            background-color: white;
+
+            border-radius: 6px;
+
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.20);
+
+            z-index: 1000;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu a {
+            display: block;
+
+            color: #003b63;
+            text-decoration: none;
+
+            padding: 12px 18px;
+
+            font-size: 15px;
+
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #e8f4fa;
+            color: #005b8f;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+
+        /* ===== HERO SECTION ===== */
+
+        .hero {
+            min-height: 720px;
+
+            margin: 0;
+            padding: 0;
+
+            background-image: url("boat-yard.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            position: relative;
+
+            text-align: left;
+        }
+
+        .hero-overlay {
+            min-height: 720px;
+            width: 100%;
+
+            background: linear-gradient(90deg,
+                    rgba(0, 40, 70, 0.78) 0%,
+                    rgba(0, 40, 70, 0.48) 28%,
+                    rgba(0, 40, 70, 0.08) 60%,
+                    rgba(0, 40, 70, 0) 100%);
+
+            position: relative;
+        }
+
+        .hero-content {
+            position: absolute;
+
+            top: 90px;
+            left: 60px;
+
+            width: 560px;
+            max-width: calc(100% - 120px);
+
+            margin: 0;
+
+            color: white;
+            text-align: left;
+        }
+
+        .hero-content h1 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 58px;
+            line-height: 1.05;
+
+            font-weight: bold;
+
+            color: white;
+
+            margin: 0 0 18px 0;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            line-height: 1.4;
+
+            margin: 0 0 25px 0;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            background-color: #0077b6;
+            color: white;
+
+            text-decoration: none;
+
+            padding: 15px 28px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            border: 2px solid white;
+            border-radius: 5px;
+
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-button:hover {
+            background-color: #005b8f;
+        }
+
+
+        /* ===== SERVICES SECTION ===== */
+
+        .services {
+            padding: 70px 30px;
+
+            text-align: center;
+
+            background-color: #f8fafc;
+        }
+
+        .services h2 {
+            color: #0b2d5c;
+
+            font-size: 36px;
+
+            margin: 0 0 45px;
+        }
+
+        .service-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .service {
+            width: 220px;
+            min-height: 220px;
+
+            padding: 28px 22px;
+
+            border-radius: 12px;
+
+            background-color: white;
+
+            border: 1px solid #e2e8f0;
+
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .service:hover {
+            transform: translateY(-8px);
+
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 72px;
+            height: 72px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background-color: #d5ebfa;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 34px;
+
+            color: #0b2d5c;
+        }
+
+        .service h3 {
+            color: #0b2d5c;
+
+            background-color: #eaf5ff;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            margin: 0 0 18px;
+
+            padding: 12px 15px;
+
+            border-radius: 6px;
+        }
+
+        .service h3 a {
+            color: #0b2d5c;
+            text-decoration: none;
+        }
+
+        .service h3 a:hover {
+            color: #1d70b7;
+            text-decoration: underline;
+        }
+
+        .service p {
+            color: #555;
+
+            font-size: 15px;
+            line-height: 1.6;
+
+            margin: 0;
+        }
+
+
+        /* ===== CONTACT SECTION ===== */
+
+        .contact {
+            background-color: #0b2d5c;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 50px 20px;
+        }
+
+        .contact h2 {
+            font-size: 32px;
+
+            margin-top: 0;
+        }
+
+        .contact a {
+            color: white;
+        }
+
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            background-color: #071d3a;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+
+            font-size: 14px;
+        }
+
+
+        /* ===== TABLET / MOBILE ===== */
+
+        @media (max-width: 800px) {
+
+            .top-contact-bar {
+                height: auto;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                padding: 10px 20px;
+            }
+
+            .header-logo {
+                justify-content: center;
+            }
+
+            .header-logo img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .business-name {
+                text-align: left;
+            }
+
+            .contact-info {
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+            .nav-menu {
+                gap: 18px;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero-overlay {
+                min-height: 600px;
+            }
+
+            .hero-content {
+                top: 70px;
+                left: 30px;
+
+                max-width: calc(100% - 60px);
+            }
+
+            .hero-content h1 {
+                font-size: 46px;
+            }
+
+            .hero-content p {
+                font-size: 21px;
+            }
+        }
+
+
+        /* ===== SMALL PHONES ===== */
+
+        @media (max-width: 600px) {
+
+            .header-logo img {
+                width: 85px;
+                height: 85px;
+            }
+
+            .business-name strong {
+                font-size: 20px;
+            }
+
+            .business-name span {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+
+            .contact-info a {
+                font-size: 13px;
+            }
+
+            .nav-menu {
+                gap: 8px;
+
+                flex-wrap: wrap;
+            }
+
+            .nav-menu>li>a {
+                font-size: 14px;
+
+                padding: 8px 5px;
+            }
+
+            .dropdown-menu {
+                min-width: 210px;
+            }
+
+            .hero {
+                min-height: 520px;
+
+                background-position: center;
+            }
+
+            .hero-overlay {
+                min-height: 520px;
+
+                background: rgba(0, 40, 70, 0.55);
+            }
+
+            .hero-content {
+                top: 70px;
+                left: 25px;
+
+                max-width: calc(100% - 50px);
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .hero-button {
+                font-size: 16px;
+
+                padding: 12px 22px;
+            }
+
+            .services {
+                padding: 50px 20px;
+            }
+
+            .services h2 {
+                font-size: 30px;
+            }
+
+            .service {
+                width: 100%;
+                max-width: 330px;
+            }
+        }
+
+        .shipyard-hours {
+            margin: 30px auto 0;
+            padding-top: 20px;
+
+            max-width: 450px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        .shipyard-hours h3 {
+            margin: 0 0 12px;
+
+            font-size: 22px;
+            color: white;
+        }
+
+        .shipyard-hours p {
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-contact-bar">
+
+        <div class="header-logo">
+            <img src="logo.png" alt="King Harbor Marine Center Logo">
+
+            <div class="business-name">
+                <strong>KING HARBOR</strong>
+                <span>MARINE CENTER</span>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <a href="tel:3103748923">☎ 310-374-8923</a>
+
+            <span class="contact-divider">|</span>
+
+            <a href="mailto:kingharbormarinecenter@gmail.com">
+                ✉ kingharbormarinecenter@gmail.com
+            </a>
+        </div>
+
+    </div>
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Services ▼</a>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="fiberglass-woodworking.html">
+                            Fiberglass &amp; Woodworking
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="bottom-painting-finishing.html">
+                            Bottom Painting &amp; Finishing
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="electrical.html">
+                            Electrical
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="plumbing.html">
+                            Plumbing
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="rigging-props.html">
+                            Rigging &amp; Props
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="haul-launch.html">
+                            Haul &amp; Launch
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="laydays.html">
+                            Laydays
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+
+
+    <section class="hero">
+
+        <div class="hero-overlay">
+
+            <div class="hero-content">
+
+
+
+                <h1>Keep Your<br>Boat on the Water</h1>
+
+                <p>
+                    Trusted marine services in the heart of Redondo Beach.
+                </p>
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <footer>
+        © 2026 King Harbor Marine Center. All Rights Reserved.
+    </footer>
+
+</body>
+
+</html>
